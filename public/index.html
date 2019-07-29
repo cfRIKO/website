@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            cfRIKO
+        </title>
+        <link rel="stylesheet" href="./stylesheets/stylesheets.css">
+    </head>
+    <body>
+        <header>
+            <h1 id="title">
+                cfRIKO
+            </h1>
+        </header>
+        <nav>
+            <div id="navbar">
+                <a class="navitem" id="active">
+                    Homepage
+                </a> 
+                <a class="navitem" href="./projects.html">
+                    Projects
+                </a>
+                <a class="navitem" href="./about.html">
+                    About Me
+                </a>
+                <a class="navitem" href="./contact.html">
+                    Contact Me
+                </a>
+            </div>
+        </nav>
+        <section>
+            <div id="slider">
+                <img id="slide" src="./media/Temp1.PNG">
+            </div>
+            <div id="contentbox">
+                <h2>About Me</h2>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro quis, ut blanditiis enim libero rerum omnis itaque nihil vel quibusdam suscipit nulla explicabo temporibus nesciunt harum hic iure quae quos? 
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto excepturi consectetur, perferendis, neque molestiae, vel deleniti ipsam unde explicabo dolores quo. Nam ea earum consequatur recusandae porro cum debitis! Atque.
+                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam, harum dignissimos! Quisquam saepe suscipit est ut aut odio nemo assumenda at fuga possimus! Officiis fugiat repellendus velit. Ullam, cupiditate ipsa.
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatem ab placeat ducimus nesciunt ratione animi. Neque cumque dolorum consectetur harum architecto incidunt quibusdam vero voluptas? Alias natus fugit aliquam ipsam.
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis nemo excepturi non necessitatibus? Dolor eius iure maiores, rem minima hic corrupti tempore veniam accusantium, incidunt mollitia tempora harum suscipit eligendi?
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Beatae hic ratione dolor, illo maxime neque cupiditate, fugit libero et eveniet autem distinctio voluptatibus. Vitae voluptatum non possimus, labore ea commodi!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente aspernatur soluta voluptate atque deleniti debitis et maiores ratione suscipit, sint mollitia obcaecati vitae porro ullam nisi asperiores odit fugiat laudantium.
+                </p>
+            </div>
+            <div id="contentbox">
+                <h2>Projects</h2>
+                <div id="indexprojects">
+                    <div class="indexproject">
+                        <h3>
+                            Project 1
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi quo ducimus excepturi soluta pariatur assumenda ipsum recusandae deserunt laboriosam. Deleniti in consequuntur commodi voluptatibus, ullam ad veritatis tempore saepe ipsa!
+                        </p>
+                    </div>
+                    <div class="indexproject">
+                        <h3>
+                            Project 2
+                        </h3>
+                        <p>
+                            Hi
+                        </p>
+                    </div>
+                    <div class="indexproject">
+                        <h3>
+                            Project 3
+                        </h3>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nisi quo ducimus excepturi soluta pariatur assumenda ipsum recusandae deserunt laboriosam. Deleniti in consequuntur commodi voluptatibus, ullam ad veritatis tempore saepe ipsa!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <h3>
+                Footer 
+            </h3>
+        </footer>
+    </body>
+    <script>
+        const slide = document.getElementById('slide')
+        let picture = 1
+
+        sliderStart = () => {
+            switchPicture = () => {
+            picture++
+            if (picture > 5) {
+                picture -= 5;    
+            }
+            return picture
+            }
+
+            return setInterval(() => {
+                slide.setAttribute('src', './media/Temp' + switchPicture() + '.png')
+            }, 5000)
+        }
+
+        const interval = sliderStart()
+        
+        
+    </script>
+</html>
