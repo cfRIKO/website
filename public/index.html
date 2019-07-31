@@ -5,7 +5,7 @@
             cfRIKO
         </title>
         <link rel="stylesheet" href="./stylesheets/stylesheets.css">
-    </head>
+    </head> 
     <body>
         <header>
             <h1 id="title">
@@ -77,26 +77,5 @@
             </h3>
         </footer>
     </body>
-    <script>
-        const slide = document.getElementById('slide')
-        let picture = 1
-
-        sliderStart = () => {
-            switchPicture = () => {
-            picture++
-            if (picture > 5) {
-                picture -= 5;    
-            }
-            return picture
-            }
-
-            return setInterval(() => {
-                slide.setAttribute('src', './media/Temp' + switchPicture() + '.png')
-            }, 5000)
-        }
-
-        const interval = sliderStart()
-        
-        
-    </script>
+    <script src="./javascript/index.js"></script>
 </html>

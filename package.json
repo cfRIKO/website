@@ -5,13 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "start /b firefox -new-tab http://localhost:3000 && node index.js"
   },
   "keywords": [
     "Website"
   ],
   "author": "cfRIKO",
-  "license": "UNLICENSED",
+  "license": "BSD-3",
   "dependencies": {
     "express": "^4.17.1"
   }
