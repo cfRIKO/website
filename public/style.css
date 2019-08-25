@@ -72,7 +72,7 @@ header {
 }
 
 #logo {
-	max-height: 6vw;
+	max-height: 4vw;
 	object-fit: scale-down;
 }
 
@@ -83,7 +83,7 @@ nav {
 }
 
 .navigation {
-	padding: 2vw;
+	padding: 1.5vw;
 	white-space: nowrap;
 	font-size: 1.2rem;
 	text-decoration: none;
@@ -100,7 +100,7 @@ nav {
 	flex-flow: column;
 	justify-content: space-around;
 	align-items: center;
-	padding: 6vw;
+	padding: 4vw;
 	background: url(./temp2.jpg) center;
 }
 
@@ -112,7 +112,7 @@ nav {
 }
 
 #slogan h1 {
-	padding: 4vw;
+	padding: 3vw;
 	background: rgba(255, 255, 255, 0.65);
 	border-radius: 0.075rem;
 }
@@ -121,7 +121,7 @@ nav {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	padding: 4vw;
+	padding: 2vw;
 	background: rgba(255, 255, 255, 0.65);
 	border-radius: 0.075rem;
 }
@@ -132,6 +132,7 @@ nav {
 }
 
 #aboutbuttons {
+	padding-top: 1vw;
 	width: 100%;
 	display: flex;
 	justify-content: space-evenly;
