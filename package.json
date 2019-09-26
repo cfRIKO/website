@@ -11,8 +11,9 @@
     "Website"
   ],
   "author": "cfRIKO",
-  "license": "UNLICENSED",
+  "license": "BSD-3",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.0"
   }
 }
