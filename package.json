@@ -1,19 +1,22 @@
 {
   "name": "website",
   "version": "1.0.0",
-  "description": "My website",
+  "description": "My personal website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "Website"
-  ],
-  "author": "cfRIKO",
-  "license": "BSD-3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cfRIKO/website.git"
+  },
+  "author": "Raphael 'cfRIKO' Felten",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/cfRIKO/website/issues"
+  },
+  "homepage": "https://github.com/cfRIKO/website#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "node-fetch": "^2.6.0"
+    "express": "^4.17.1"
   }
 }

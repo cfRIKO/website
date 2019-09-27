@@ -1,25 +1,16 @@
-const createProject = (project) => {
-    var projectTitle = document.createElement('h1')
-    projectTitle.classList.add('projecttitle')
-    projectTitle.textContent = project.name
+big_screen = document.documentElement.clientWidth > 480
 
-    var projectDescription = document.createElement('p')
-    projectDescription.classList.add('projectdescription')
-    projectDescription.textContent = project.description
+fetch('https://api.github.com/users/cfriko/repos')
+  .then(res => res.json())
+  .then(json => console.log(json))
 
-    var projectDiv = document.createElement('div')
-    projectDiv.classList.add('project')
-    projectDiv.appendChild(projectTitle)
-    projectDiv.appendChild(projectDescription)
-    return projectDiv
-}
+if (big_screen) {
+  theader = document.createElement('tr')
+  theader.setAttribute('id', 'theader')
+  theader.appendChild(document.createElement('th').appendChild(document.createTextNode('Repository')))
+  theader.appendChild(document.createElement('th').appendChild(document.createTextNode('Language')))
+  theader.appendChild(document.createElement('th').appendChild(document.createTextNode('Last Commit')))
+  theader.appendChild(document.createElement('th').appendChild(document.createTextNode('Stars')))
 
-const container = document.getElementById('projects')
-
-fetch('http://localhost:3000/api/projects')
-    .then(response => response.json())
-    .then(projects => {
-        projects.data.forEach(project => {
-            container.appendChild(createProject(project))
-        });
-    })
+  document.getElementById('projects').appendChild(theader)
+} 

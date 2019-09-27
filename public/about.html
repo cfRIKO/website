@@ -1,39 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="cfRIKO">
-    <title>
-        cfRIKO
-    </title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>RF - About Me</title>
+  <link rel="stylesheet" href="./css/styles.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <img src="./temp.jpg" alt="Logo" id="logo">
-            <a href="/" id="active" class="navigation">Home</a>
-            <a href="about.html" class="navigation">About Me</a>
-            <a href="projects.html" class="navigation">Projects</a>
-            <a href="contact.html" class="navigation">Contact</a>
-        </nav>
-    </header>
-    <main>
-       <div id="aboutbox">
-            <p id="abouttext">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, reprehenderit accusamus? Totam velit, accusantium minima placeat ea, voluptas, omnis pariatur et iusto quis natus culpa corporis at dignissimos adipisci? Beatae. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione omnis veritatis nobis suscipit tempore, optio dolore saepe eos ullam architecto deleniti numquam vitae maxime expedita, voluptate et unde? Ratione, unde!
-            </p> 
-            <div id="aboutbuttons">
-                <button id="projects">
-                    Projects 
-                </button>
-                <button id="contact">
-                    Contact
-                </button>
-            </div>
-       </div>
-    </main>
+  <nav class="menu">
+    <a href="./" id="logolink"><img src="./files/images/Logo.png" alt="Logo" id="menulogo"></a>
+    <div class="dropdown">
+      <a href="./about.html" class="menuitem">About Me</a>
+      <a href="./projects.html" class="menuitem">My Projects</a>
+      <a href="./contact.html" class="menuitem">Contact Me</a>
+      <button onclick="showMenu()" id="togglemenu"><i class="material-icons">menu</i></button>
+    </div>
+  </nav>
+  <main>
+    <div id="about_main">
+      <p id="about_paragraph">
+        My name is Raphael 'cfRIKO' Felten and I am 16 years old. Currently I visit the 12th grade in a German grammar school. 
+        In my freetime I develop programs and design websites such as this one. Additionally I love playing video games like CS:GO and Overwatch. 
+      </p>
+    </div>
+  </main>
+  <footer>
+    <a href="https://github.com/cfRIKO" class="footerlink">Github</a>
+    <a href="https://twitter.com/RikoCf" class="footerlink">Twitter</a>
+    <a href="https://www.youtube.com/channel/UCnvYP-7lDp6S-xtShiR43sQ" class="footerlink">Youtube</a>
+  </footer>
 </body>
-<script src="./js/about.js"></script>
+<script src="./js/dropdown.js"></script>
 </html>
