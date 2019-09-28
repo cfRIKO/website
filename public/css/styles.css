@@ -141,9 +141,8 @@ body {
 
 @media screen and (max-width: 480px) {
   .dropdown {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: flex-end;
-    flex: 1;
   }
 
   .menuitem {
@@ -155,9 +154,8 @@ body {
     order: 0;
   }
 
-  .menuitem:hover {
-    background: rgb(255,255,255);
-    background: linear-gradient(90deg, rgba(255,255,255,1) 31%, rgba(0,0,0,1) 70%);
+  #togglemenu {
+    order: 1;
   }
 }
 
@@ -170,6 +168,9 @@ main {
   background: #8bff40;
   min-width: 100%;
   padding-top: 7vh;
+  color: white;
+  font-weight: bolder;
+  text-shadow: 1px 1px 2px black;
 }
 
 /* Footer */
@@ -197,7 +198,10 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url("../files/images/programming-1873854.png")
+  background: url("../files/images/programming-1873854.png");
+  color: black;
+  text-shadow: none;
+  font-weight: normal;
 }
 
 #index_header {
@@ -251,3 +255,29 @@ footer {
 
 /* projects.html */
 
+#projects_main {
+  font-size: 150%;
+}
+
+#theader {
+  border-bottom: 2px solid white
+}
+
+#theader th {
+  padding: 2vh 5vh 2vh 3vh;
+  text-align: start;
+  border-right: 1px solid white;
+}
+
+#theader th:last-child {
+  border: none;
+}
+
+.project {
+  border-top: 1px solid white;
+}
+
+.project td {
+  padding: 2vh;
+  font-size: 80%;
+}
