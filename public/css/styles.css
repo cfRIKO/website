@@ -151,26 +151,30 @@ body {
     line-height: 3vh;
     text-align: end;
     width: 100%;
-    order: 0;
   }
 
-  #togglemenu {
-    order: 1;
+  .menuitem:hover {
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,1) 29%, rgba(139,255,64,1) 100%); 
   }
 }
 
 /* Main */
 
 main {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #8bff40;
-  min-width: 100%;
   padding-top: 7vh;
   color: white;
   font-weight: bolder;
   text-shadow: 1px 1px 2px black;
+}
+
+#main {
+  padding-bottom: 7vh;
 }
 
 /* Footer */
@@ -242,8 +246,20 @@ footer {
 #about_main {
   font-size: 150%;
   width: 36em;
-  text-align: center;
   word-wrap: break-word;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#about_title {
+  padding-bottom: 4vh;
+  font-size: 150%;
+}
+
+#about_main p {
+  text-align: center;
 }
 
 @media screen and (max-width: 480px) {
@@ -256,6 +272,15 @@ footer {
 /* projects.html */
 
 #projects_main {
+  font-size: 150%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#projects_title {
+  padding-bottom: 4vh;
   font-size: 150%;
 }
 
@@ -280,4 +305,20 @@ footer {
 .project td {
   padding: 2vh;
   font-size: 80%;
+}
+
+@media screen and (max-width: 480px) {
+  #projects_main {
+    font-size: 120%;
+  }
+}
+
+/* contact.html */
+
+#contact_main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
 }
