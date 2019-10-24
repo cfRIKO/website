@@ -117,7 +117,9 @@ body {
   border: none;
   margin: 1vh;
   border-radius: 100%;
-  line-height: 0vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shownmenu {
@@ -214,30 +216,34 @@ footer {
 }
 
 #index_header h1 {
-  padding: 2vh;
+  padding: 4vh;
   font-size: 300%;
   text-align: center;
-  width: 15em;
 }
 
 #aboutlink {
   position: fixed;
   bottom: 0;
-  line-height: 0;
   background: #8bff40;
   margin: 1vh;
   height: 5vh;
   width: 5vh;
   border-radius: 100%;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media screen and (max-width: 480px) {
+  #index_header {
+    width: 75%;
+  }
+
   #index_header h1 {
-    padding: 2vh;
+    padding: 1vh;
     font-size: 175%;
     text-align: center;
-    width: 10em;
   }
 }
 
@@ -245,7 +251,7 @@ footer {
 
 #about_main {
   font-size: 150%;
-  width: 36em;
+  width: 75%;
   word-wrap: break-word;
   display: flex;
   flex-direction: column;
@@ -307,6 +313,16 @@ footer {
   font-size: 80%;
 }
 
+.project td a {
+  color: #212121;
+  text-shadow: 1px 1px 2px white;
+  text-decoration: none;
+}
+
+#error {
+  color: red;
+}
+
 @media screen and (max-width: 480px) {
   #projects_main {
     font-size: 120%;
@@ -321,4 +337,8 @@ footer {
   justify-content: center;
   align-items: center;
   font-size: 150%;
+}
+
+.material-icons.smallicon {
+  font-size: 14px;
 }
