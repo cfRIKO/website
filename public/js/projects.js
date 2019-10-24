@@ -1,25 +1,98 @@
-const createProject = (project) => {
-    var projectTitle = document.createElement('h1')
-    projectTitle.classList.add('projecttitle')
-    projectTitle.textContent = project.name
+var big_screen = document.documentElement.clientWidth > 480
 
-    var projectDescription = document.createElement('p')
-    projectDescription.classList.add('projectdescription')
-    projectDescription.textContent = project.description
+repos = []
 
-    var projectDiv = document.createElement('div')
-    projectDiv.classList.add('project')
-    projectDiv.appendChild(projectTitle)
-    projectDiv.appendChild(projectDescription)
-    return projectDiv
-}
+fetch('https://api.github.com/users/cfriko/repos')
+  .then(res => res.json())
+  .then(json => {
+    for (let index = 0; index < json.length; index++) {
+      repo = json[index]
+      repo = {
+        name: repo.name,
+        lang: repo.language,
+        website: repo.homepage ? repo.homepage : repo.svn_url,
+        updated: repo.pushed_at,
+        stars: repo.stargazers_count
+      }
+      repos.push(repo)
+    }
+    if (big_screen) {
+      theader = document.createElement('tr')
+      theader.setAttribute('id', 'theader')
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Repository'))
+      theader.appendChild(temp)
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Language'))
+      theader.appendChild(temp)
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Last Commit'))
+      theader.appendChild(temp)
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Stars'))
+      theader.appendChild(temp)
+    
+      document.getElementById('projects').appendChild(theader)  
+    
+      repos.forEach(repo => {
+        project = document.createElement('tr')
+        project.classList.add('project')
+        temp = document.createElement('td')
+        weblink = document.createElement('a')
+        weblink.appendChild(document.createTextNode(repo.name))
+        weblink.setAttribute('href', repo.website)
+        weblink.setAttribute('target', '_blank')
+        temp.appendChild(weblink)
+        project.appendChild(temp)
+        temp = document.createElement('td')
+        temp.appendChild(document.createTextNode(repo.lang))
+        project.appendChild(temp)
+        temp = document.createElement('td')
+        temp.appendChild(document.createTextNode(repo.updated.split('T')[0]))
+        project.appendChild(temp)
+        temp = document.createElement('td')
+        temp.appendChild(document.createTextNode(repo.stars))
+        project.appendChild(temp)
+    
+        document.getElementById('projects').appendChild(project)
+      })
+    
+    } else {
+      theader = document.createElement('tr')
+      theader.setAttribute('id', 'theader')
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Repository'))
+      theader.appendChild(temp)
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('Stars'))
+      theader.appendChild(temp)
 
-const container = document.getElementById('projects')
+      document.getElementById('projects').appendChild(theader)  
+    
+      repos.forEach(repo => {   
+        project = document.createElement('tr')
+        temp = document.createElement('td')
+        temp.appendChild(document.createTextNode(repo.name))
+        icon = document.createElement('i')
+        icon.appendChild(document.createTextNode('code'))
+        icon.setAttribute('class', 'material-icons')
+        link = document.createElement('a')
+        link.setAttribute('href', repo.website)
+        link.appendChild(icon)
+        temp.appendChild(link)
+        project.appendChild(temp)
+        temp = document.createElement('td')
+        temp.appendChild(document.createTextNode(repo.stars))
+        project.appendChild(temp)
+    
+        document.getElementById('projects').appendChild(project)
+      })
+    }
+  })
+  .catch(() => {
+    temp = document.createElement('th')
+    temp.appendChild(document.createTextNode('No Projects Found.'))
+    temp.setAttribute('id', 'error')
+    document.getElementById('projects').appendChild(temp)
+  })
 
-fetch('http://localhost:3000/api/projects')
-    .then(response => response.json())
-    .then(projects => {
-        projects.data.forEach(project => {
-            container.appendChild(createProject(project))
-        });
-    })

@@ -1,8 +1,12 @@
 const express = require('express')
+
+const PORT = 8080
+const HOST = '0.0.0.0'
+
+
 const app = express()
-const port = 3000
 
-app.use('/', require('./routes/static'))
-app.use('/api', require('./routes/api'))
+app.use(express.static('public'))
 
-app.listen(port, () => console.log(`App listenting on Port ${port}`))
+app.listen(PORT, HOST)
+console.log(`Running on http://${HOST}:${PORT}`)

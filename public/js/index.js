@@ -1,4 +1,3 @@
-var button = document.getElementById('about')
-button.addEventListener('click', (event) => {
-    window.location.href = 'about.html'
-})
+toAbout = () => {
+  window.location.pathname = 'about.html'  
+}
