@@ -1,4 +1,4 @@
-resize = () => {
+dropdown = () => {
   if (document.documentElement.clientWidth > 480) {
     menuitems = document.getElementsByClassName('menuitem')
     document.getElementById('togglemenu').classList.value = 'shownmenu'
@@ -25,6 +25,5 @@ showMenu = () => {
   }
 }
 
-resize()
-
-window.onresize = resize
+dropdown()
+window.addEventListener('resize', dropdown)

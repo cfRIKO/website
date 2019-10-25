@@ -22,7 +22,8 @@ time, mark, audio, video, button {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -104,7 +105,6 @@ body {
   line-height: 5vh;
   text-align: center;
   font-size: 120%;
-  order: 1;
 }
 
 .menuitem:hover {
@@ -120,11 +120,14 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  align-self: flex-end;
+  margin-left: auto;
 }
 
 .shownmenu {
   color: white;
   background: #8bff40;
+  
 }
 
 .hiddenmenu {
@@ -153,6 +156,7 @@ body {
     line-height: 3vh;
     text-align: end;
     width: 100%;
+    order: 1;
   }
 
   .menuitem:hover {
@@ -259,18 +263,24 @@ footer {
   align-items: center;
 }
 
-#about_title {
-  padding-bottom: 4vh;
+.h2_title {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   font-size: 150%;
 }
 
-#about_main p {
+.paragraph {
   text-align: center;
+}
+
+.paragraph a {
+  color: #212121;
+  text-shadow: 1px 1px 2px white;
 }
 
 @media screen and (max-width: 480px) {
   #about_main {
-    font-size: 120%;
+    font-size: 115%;
     width: 16em;
   }
 }
@@ -283,11 +293,6 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-#projects_title {
-  padding-bottom: 4vh;
-  font-size: 150%;
 }
 
 #theader {
@@ -325,18 +330,38 @@ footer {
 
 @media screen and (max-width: 480px) {
   #projects_main {
-    font-size: 120%;
+    font-size: 115%;
   }
 }
 
 /* contact.html */
 
 #contact_main {
+  font-size: 150%;
+  width: 75%;
+  word-wrap: break-word;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 150%;
+}
+
+.h3_title {
+  font-size: 115%;
+  margin-top: 1.5vh;
+  margin-bottom: 1.5vh;
+} 
+
+#hint {
+  font-size: 80%;
+  color: red;
+}
+
+@media screen and (max-width: 480px) {
+  #contact_main {
+    font-size: 115%;
+    width: 16em;
+  }
 }
 
 .material-icons.smallicon {
