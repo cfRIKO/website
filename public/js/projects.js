@@ -1,98 +1,206 @@
-var big_screen = document.documentElement.clientWidth > 480
+projects = () => {
+  var big_screen = document.documentElement.clientWidth > 700
 
-repos = []
+  repos = []
+  cfdev_repos = []
 
-fetch('https://api.github.com/users/cfriko/repos')
-  .then(res => res.json())
-  .then(json => {
-    for (let index = 0; index < json.length; index++) {
-      repo = json[index]
-      repo = {
-        name: repo.name,
-        lang: repo.language,
-        website: repo.homepage ? repo.homepage : repo.svn_url,
-        updated: repo.pushed_at,
-        stars: repo.stargazers_count
+  projects_table = document.getElementById('projects')
+  cfrikodev_projects_table = document.getElementById('projects_cfrikodev')
+
+  fetch('https://api.github.com/users/cfriko/repos')
+    .then(res => res.json())
+    .then(json => {
+      for (let index = 0; index < json.length; index++) {
+        repo = json[index]
+        repo = {
+          name: repo.name,
+          lang: repo.language,
+          website: repo.homepage ? repo.homepage : repo.svn_url,
+          updated: repo.pushed_at,
+          stars: repo.stargazers_count
+        }
+        repos.push(repo)
       }
-      repos.push(repo)
-    }
-    if (big_screen) {
-      theader = document.createElement('tr')
-      theader.setAttribute('id', 'theader')
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Repository'))
-      theader.appendChild(temp)
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Language'))
-      theader.appendChild(temp)
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Last Commit'))
-      theader.appendChild(temp)
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Stars'))
-      theader.appendChild(temp)
-    
-      document.getElementById('projects').appendChild(theader)  
-    
-      repos.forEach(repo => {
-        project = document.createElement('tr')
-        project.classList.add('project')
-        temp = document.createElement('td')
-        weblink = document.createElement('a')
-        weblink.appendChild(document.createTextNode(repo.name))
-        weblink.setAttribute('href', repo.website)
-        weblink.setAttribute('target', '_blank')
-        temp.appendChild(weblink)
-        project.appendChild(temp)
-        temp = document.createElement('td')
-        temp.appendChild(document.createTextNode(repo.lang))
-        project.appendChild(temp)
-        temp = document.createElement('td')
-        temp.appendChild(document.createTextNode(repo.updated.split('T')[0]))
-        project.appendChild(temp)
-        temp = document.createElement('td')
-        temp.appendChild(document.createTextNode(repo.stars))
-        project.appendChild(temp)
-    
-        document.getElementById('projects').appendChild(project)
-      })
-    
-    } else {
-      theader = document.createElement('tr')
-      theader.setAttribute('id', 'theader')
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Repository'))
-      theader.appendChild(temp)
-      temp = document.createElement('th')
-      temp.appendChild(document.createTextNode('Stars'))
-      theader.appendChild(temp)
 
-      document.getElementById('projects').appendChild(theader)  
-    
-      repos.forEach(repo => {   
-        project = document.createElement('tr')
-        temp = document.createElement('td')
-        temp.appendChild(document.createTextNode(repo.name))
-        icon = document.createElement('i')
-        icon.appendChild(document.createTextNode('code'))
-        icon.setAttribute('class', 'material-icons')
-        link = document.createElement('a')
-        link.setAttribute('href', repo.website)
-        link.appendChild(icon)
-        temp.appendChild(link)
-        project.appendChild(temp)
-        temp = document.createElement('td')
-        temp.appendChild(document.createTextNode(repo.stars))
-        project.appendChild(temp)
-    
-        document.getElementById('projects').appendChild(project)
-      })
-    }
-  })
-  .catch(() => {
-    temp = document.createElement('th')
-    temp.appendChild(document.createTextNode('No Projects Found.'))
-    temp.setAttribute('id', 'error')
-    document.getElementById('projects').appendChild(temp)
-  })
+      while (projects_table.hasChildNodes()) {
+        projects_table.removeChild(projects_table.firstChild)
+      }
 
+      if (big_screen) {
+        theader = document.createElement('tr')
+        theader.setAttribute('id', 'theader')
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Repository'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Language'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Last Commit'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Stars'))
+        theader.appendChild(temp)
+      
+        projects_table.appendChild(theader)  
+      
+        repos.forEach(repo => {
+          project = document.createElement('tr')
+          project.classList.add('project')
+          temp = document.createElement('td')
+          weblink = document.createElement('a')
+          weblink.appendChild(document.createTextNode(repo.name))
+          weblink.setAttribute('href', repo.website)
+          weblink.setAttribute('target', '_blank')
+          temp.appendChild(weblink)
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.lang))
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.updated.split('T')[0]))
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.stars))
+          project.appendChild(temp)
+      
+          projects_table.appendChild(project)
+        })
+      
+      } else {
+        theader = document.createElement('tr')
+        theader.setAttribute('id', 'theader')
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Repository'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Stars'))
+        theader.appendChild(temp)
+
+        projects_table.appendChild(theader)  
+      
+        repos.forEach(repo => {   
+          project = document.createElement('tr')
+          project.classList.add('project')
+          temp = document.createElement('td')
+          weblink = document.createElement('a')
+          weblink.appendChild(document.createTextNode(repo.name))
+          weblink.setAttribute('href', repo.website)
+          weblink.setAttribute('target', '_blank')
+          temp.appendChild(weblink)
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.stars))
+          project.appendChild(temp)
+      
+          projects_table.appendChild(project)
+        })
+      }
+    })
+    .catch(() => {
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('No Projects Found.'))
+      temp.setAttribute('id', 'error')
+      projects_table.appendChild(temp)
+    })
+
+  fetch('https://api.github.com/orgs/cfrikodev/repos')
+    .then(res => res.json())
+    .then(json => {
+      for (let index = 0; index < json.length; index++) {
+        repo = json[index]
+        repo = {
+          name: repo.name,
+          lang: repo.language,
+          website: repo.homepage ? repo.homepage : repo.svn_url,
+          updated: repo.pushed_at,
+          stars: repo.stargazers_count
+        }
+        cfdev_repos.push(repo)
+      }
+
+      while (cfrikodev_projects_table.hasChildNodes()) {
+        cfrikodev_projects_table.removeChild(cfrikodev_projects_table.firstChild)
+      }
+
+      if (big_screen) {
+        theader = document.createElement('tr')
+        theader.setAttribute('id', 'theader')
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Repository'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Language'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Last Commit'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Stars'))
+        theader.appendChild(temp)
+      
+        cfrikodev_projects_table.appendChild(theader)  
+      
+        cfdev_repos.forEach(repo => {
+          project = document.createElement('tr')
+          project.classList.add('project')
+          temp = document.createElement('td')
+          weblink = document.createElement('a')
+          weblink.appendChild(document.createTextNode(repo.name))
+          weblink.setAttribute('href', repo.website)
+          weblink.setAttribute('target', '_blank')
+          temp.appendChild(weblink)
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.lang))
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.updated.split('T')[0]))
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.stars))
+          project.appendChild(temp)
+      
+          cfrikodev_projects_table.appendChild(project)
+        })
+      
+      } else {
+        theader = document.createElement('tr')
+        theader.setAttribute('id', 'theader')
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Repository'))
+        theader.appendChild(temp)
+        temp = document.createElement('th')
+        temp.appendChild(document.createTextNode('Stars'))
+        theader.appendChild(temp)
+
+        cfrikodev_projects_table.appendChild(theader)  
+      
+        cfdev_repos.forEach(repo => {   
+          project = document.createElement('tr')
+          project.classList.add('project')
+          temp = document.createElement('td')
+          weblink = document.createElement('a')
+          weblink.appendChild(document.createTextNode(repo.name))
+          weblink.setAttribute('href', repo.website)
+          weblink.setAttribute('target', '_blank')
+          temp.appendChild(weblink)
+          project.appendChild(temp)
+          temp = document.createElement('td')
+          temp.appendChild(document.createTextNode(repo.stars))
+          project.appendChild(temp)
+      
+          cfrikodev_projects_table.appendChild(project)
+        })
+      }
+    })
+    .catch(() => {
+      temp = document.createElement('th')
+      temp.appendChild(document.createTextNode('No Projects Found.'))
+      temp.setAttribute('id', 'error')
+      cfrikodev_projects_table.appendChild(temp)
+    })
+}
+
+projects()
+window.addEventListener('resize', projects)
