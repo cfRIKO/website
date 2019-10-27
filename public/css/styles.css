@@ -53,6 +53,7 @@ table {
 
 html {
   font-family: 'Roboto', sans-serif;
+  color: #212121;
   height: 100%;
 }
 
@@ -108,7 +109,7 @@ body {
 }
 
 .menuitem:hover {
-  background: #8bff40;
+  background: #FD6A02;
 }
 
 #togglemenu {
@@ -126,18 +127,18 @@ body {
 
 .shownmenu {
   color: white;
-  background: #8bff40;
+  background: #FD6A02;
   
 }
 
 .hiddenmenu {
   background: white;
-  color: #8bff40;
+  color: #FD6A02;
 }
 
 .hiddenmenu:hover {
   color: white;
-  background: #8bff40;
+  background: #FD6A02;
 }
 
 .show {
@@ -172,7 +173,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #8bff40;
+  background: #FD6A02;
   padding-top: 7vh;
   color: white;
   font-weight: bolder;
@@ -228,7 +229,7 @@ footer {
 #aboutlink {
   position: fixed;
   bottom: 0;
-  background: #8bff40;
+  background: #FD6A02;
   margin: 1vh;
   height: 5vh;
   width: 5vh;
@@ -264,7 +265,6 @@ footer {
 }
 
 .h2_title {
-  margin-top: 2vh;
   margin-bottom: 2vh;
   font-size: 150%;
 }
@@ -293,6 +293,10 @@ footer {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.cfrdev {
+  margin-top: 2vh;
 }
 
 #theader {
