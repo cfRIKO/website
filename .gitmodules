@@ -1,0 +1,6 @@
+[submodule "website_frontend"]
+	path = website_frontend
+	url = https://github.com/cfRIKO/website_frontend
+[submodule "website_backend"]
+	path = website_backend
+	url = https://github.com/cfRIKO/website_backend
