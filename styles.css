@@ -1,0 +1,36 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h1 {
+  box-sizing: border-box;
+  margin: 0 ;
+  padding: 2vh;
+  border: 1px solid black;
+  border-left: 0;
+  border-top: 0;
+}
+
+#container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2vh;
+}
+
+.column:first-child {
+  border-right: 1px solid black;
+ }
