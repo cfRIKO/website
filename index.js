@@ -3,6 +3,7 @@ fetch('https://api.github.com/users/cfRIKO/repos')
   .then(res => res.json())
   .then(repos => {
     const tbody = table.tBodies[0];
+    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     repos.forEach(repo => {
       console.log(repo);
       const row = tbody.insertRow();
