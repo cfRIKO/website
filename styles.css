@@ -9,13 +9,12 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-h1 {
-  box-sizing: border-box;
-  margin: 0 ;
-  padding: 2vh;
-  border: 1px solid black;
-  border-left: 0;
-  border-top: 0;
+span {
+  font-size: 120%;
+}
+
+td {
+  padding: 0.5vh;
 }
 
 #container {
@@ -25,6 +24,7 @@ h1 {
 }
 
 .column {
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,4 +33,16 @@ h1 {
 
 .column:first-child {
   border-right: 1px solid black;
- }
+}
+
+@media only screen and (max-width: 880px) {
+  .container {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  .column:first-child {
+    border-right: 0;
+    border-bottom: 1px solid black;
+  }
+}

@@ -8,7 +8,10 @@ fetch('https://api.github.com/users/cfRIKO/repos')
       console.log(repo);
       const row = tbody.insertRow();
       const name = row.insertCell();
-      name.appendChild(document.createTextNode(repo.name));
+      const link = document.createElement('a');
+      link.appendChild(document.createTextNode(repo.name));
+      link.href = repo.html_url;
+      name.appendChild(link);
       const description = row.insertCell();
       description.appendChild(document.createTextNode(repo.description));
       const language = row.insertCell();
