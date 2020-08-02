@@ -5,7 +5,6 @@ fetch('https://api.github.com/users/cfRIKO/repos')
     const tbody = table.tBodies[0];
     repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
     repos.forEach(repo => {
-      console.log(repo);
       const row = tbody.insertRow();
       const name = row.insertCell();
       const link = document.createElement('a');
